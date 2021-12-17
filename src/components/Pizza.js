@@ -1,15 +1,43 @@
 import React from 'react'
 
-export default function PizzaForm() {
+export default function Pizza(props) {
+    const {
+        values,
+        change,
+        submit,
+        disabled,
+        errors
+    } = props;
+
+    // submit handler
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
+
+    // change handler
+    const changeHandler = evt => {
+        const{name, value, checked, type} = evt.target
+        const valueToUse = type === 'checkbox' ? checked : value;
+        change(name, valueToUse)
+    }
+
     return (
         <div>
-            <h1>Pizza Builder Form</h1>
-            <form id='pizza-form'>
+            <h1>Pizza Builder</h1>
+            <form id='pizza-form' onSubmit={onSubmit}>
                 <div className='formContainer'>
                 {/* form container is the parent div for each section of the form. add flex to this when styling */}
+                    <div id='errors'>
+                        <div>{errors.name}</div>
+                    </div>
+                    
                     <div className='size'>
                     <h3>Size</h3>
-                            <select id='size-dropdown'>
+                            <select
+                            name='size'
+                            id='size-dropdown'
+                            >
                                 <option value=''>-Select a size-</option>
                                 <option value='1'>Small - 10"</option>
                                 <option value='2'>Medium - 12"</option>
@@ -24,32 +52,32 @@ export default function PizzaForm() {
                             <input
                             type='checkbox'
                             name='pepperoni'
-                            // checked={}
-                            // onChange={}
+                            checked={values.pepperoni}
+                            onChange={changeHandler}
                             />
                         </label>
                         <label>Sausage
                             <input
                             type='checkbox'
                             name='sausage'
-                            // checked={}
-                            // onChange={}
+                            checked={values.sausage}
+                            onChange={changeHandler}
                             />
                         </label>
                         <label>Green Pepper
                             <input
                             type='checkbox'
                             name='greenPepper'
-                            // checked={}
-                            // onChange={}
+                            checked={values.greenPepper}
+                            onChange={changeHandler}
                             />
                         </label>
                         <label>Mushrooms
                             <input
                             type='checkbox'
-                            name='mushroom'
-                            // checked={}
-                            // onChange={}
+                            name='mushrooms'
+                            checked={values.mushrooms}
+                            onChange={changeHandler}
                             />
                         </label>
                     </div>
@@ -58,11 +86,11 @@ export default function PizzaForm() {
                     <h3>Special Instructions</h3>
                         <input
                         type='text'
-                        name='instructions'
+                        name='special'
                         placeholder='well done? extra sauce?'
                         id='special-text'
-                        // value={}
-                        // onChange={}
+                        value={values.special}
+                        onChange={changeHandler}
                         />
                     </div>
 
@@ -73,18 +101,18 @@ export default function PizzaForm() {
                         type='text'
                         name='name'
                         id='name-input'
-                        // value={}
-                        // onChange={}
+                        value={values.name}
+                        onChange={changeHandler}
                         />
                     </label>
-                    <label>Last Name
+                    {/* <label>Last Name
                         <input
                         type='text'
                         name='lastName'
-                        // value={}
-                        // onChange={}
+                        // value={values.lastName}
+                        // onChange={changeHandler}
                         />
-                    </label>
+                    </label> */}
                     </div>
 
                     <div className='submit'>
