@@ -31,14 +31,14 @@ export default function Pizza(props) {
                     <div id='errors'>
                         <div>{errors.name}</div>
                     </div>
-                    
+
                     <div className='size'>
                     <h3>Size</h3>
                             <select
                             name='size'
                             id='size-dropdown'
                             >
-                                <option value=''>-Select a size-</option>
+                                <option value='0'>-Select a size-</option>
                                 <option value='1'>Small - 10"</option>
                                 <option value='2'>Medium - 12"</option>
                                 <option value='3'>Large - 14"</option>

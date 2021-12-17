@@ -8,7 +8,7 @@ import * as yup from 'yup';
 
 const initialPizzaValues = {
   name: '',
-  size: '',
+  size: '0',
   pepperoni: false,
   sausage: false,
   greenPepper: false,

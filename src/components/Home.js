@@ -9,7 +9,7 @@ export default function Home() {
         <div className='homeContainer'>
             <div className='backgroundImageContainer'>
                 <Link to='/pizza' id='order-pizza'>
-                    <button>
+                    <button id='pizza-button'>
                     Build a Pizza
                     </button>
                 </Link>
