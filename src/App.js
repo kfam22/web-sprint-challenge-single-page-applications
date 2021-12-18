@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Pizza from './components/Pizza';
 import schema from "./components/pizzaFormSchema";
 import * as yup from 'yup';
+import './App.css';
 
 const initialPizzaValues = {
   name: '',
@@ -29,14 +30,6 @@ const App = () => {
   const [orders, setOrders] = useState(initialOrders);
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  // const getOrders = () => {
-  //   axios.get('https://reqres.in/api/orders')
-  //   .then(res => {
-  //     setOrders(res.data.data);
-  //   })
-  //   .catch(err => console.error(err))
-  // }
-
   const postNewOrder = newOrder => {
     axios.post('https://reqres.in/api/orders', newOrder)
     .then(res => {
@@ -46,11 +39,6 @@ const App = () => {
     .catch(err => console.error(err))
     .finally(() => setPizzaValues(initialPizzaValues))
   }
-
-  // side effects
-  // useEffect(() => {
-  //   getOrders()
-  // }, []);
 
   useEffect(() => {
     schema.isValid(pizzaValues).then(valid => setDisabled(!valid))
@@ -88,9 +76,8 @@ const App = () => {
   }
 
   // form submit function
-  
   return (
-    <>
+    <div className='appContainer'>
       <nav>
         <div className='title'>
           <Link to='/'><h1>Bloom Pizzeria</h1></Link>
@@ -116,7 +103,7 @@ const App = () => {
           <Home/>
         </Route>
       </Switch>
-    </>
+    </div>
   );
 };
 export default App;

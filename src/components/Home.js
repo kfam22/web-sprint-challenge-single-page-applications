@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import { useHistory } from 'react-router-dom';
-import pizza from '../Assets/Pizza.jpg'
 
 export default function Home() {
 
     return (
         <div className='homeContainer'>
             <div className='backgroundImageContainer'>
+                <h2>Your favorite food, delivered while coding</h2>
                 <Link to='/pizza' id='order-pizza'>
-                    <button id='pizza-button'>
-                    Build a Pizza
+                    <button className='pizza' id='pizza-button'>
+                    Git Some Pizza
                     </button>
                 </Link>
             </div>

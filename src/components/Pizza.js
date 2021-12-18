@@ -24,7 +24,9 @@ export default function Pizza(props) {
 
     return (
         <div>
+            <div className='formTitle'>
             <h1>Pizza Builder</h1>
+            </div>
             <form id='pizza-form' onSubmit={onSubmit}>
                 <div className='formContainer'>
                 {/* form container is the parent div for each section of the form. add flex to this when styling */}
@@ -105,18 +107,18 @@ export default function Pizza(props) {
                         onChange={changeHandler}
                         />
                     </label>
-                    {/* <label>Last Name
+                    <label>Last Name
                         <input
                         type='text'
                         name='lastName'
                         // value={values.lastName}
                         // onChange={changeHandler}
                         />
-                    </label> */}
+                    </label>
                     </div>
 
                     <div className='submit'>
-                        <button id='order-button'>
+                        <button id='order-button' disabled={disabled}>
                         Add to Order
                         </button>
                     </div>
